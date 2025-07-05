@@ -16,9 +16,8 @@ const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const app = express();
-const SECRET_KEY = 'jsfgfjguwrg8783wgbjs849h2fu3cnsvh8wyr8fhwfvi2g225';
- 
-const port = 5000; 
+const SECRET_KEY = process.env.JWT_SECRET;
+const PORT = process.env.PORT || 5000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({
@@ -590,6 +589,6 @@ app.post('/api/notifications/:notificationId/read', (req, res) => {
 });
 
 
-app.listen(port,()=>{
-    console.log("Server is running on port"+port)
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
