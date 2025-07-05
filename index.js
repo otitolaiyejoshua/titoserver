@@ -22,13 +22,13 @@ const port = 5000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({
-    origin:'http://localhost:3000'
+    origin:'https://titoclient.vercel.app'
 }));
 
 const db = mysql.createConnection({
     host:'localhost',
     user:'root',
-    password:'joshua1908',
+    password:'',
     database:'tito',
 });
 db.connect((err)=>{
